@@ -4,7 +4,7 @@
  *Faz uma conexão com o banco de dados MYSQL.
  *na base de dados recuperar-senha.
  *
- * @return retorna uma conexão conexão com o banco de dados, ou 
+ * @return \mysqli  uma conexão conexão com o banco de dados, ou 
  * em caso de falha, mata a excução e exibe o erro
  */
 function conectar()
