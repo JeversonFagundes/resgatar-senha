@@ -21,3 +21,18 @@ function conectar()
 
     return $mysql;
 }
+
+function excutarSQL($mysql, $sql)
+{
+
+    $resultado = mysqli_query($mysql, $sql);
+
+    if ($resultado === false) {
+
+        echo "Erro ao excutar o comando sql" . ' ' . mysqli_errno($mysql) . ' ' . ':' . ' ' . mysqli_error($mysql);
+
+        die ();
+    }
+
+    return $resultado;
+}

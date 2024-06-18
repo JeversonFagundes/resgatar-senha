@@ -13,7 +13,7 @@
 
 <h1>Bem vindo!</h1>
 
-<h2>Você está logado noz</h2>
+<h2>Você está logado </h2>
     
 </body>
 

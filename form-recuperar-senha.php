@@ -14,9 +14,9 @@
 <h1>Recuperar senha</h1>
 
 <p>Digite o seu email para que você possa criar uma nova senha</p>
-<p>Será enviado um email com um link de recuperação que você usará para criar uma nova senha.</p>
+<p>Será enviado um email com um link de recuperação que você usará para criar uma nova senha.    </p>
 
-<form action="" method="post">
+<form action="recuperar.php" method="post">
 
 <label for="email">Email:</label>
 <input type="email" name="email" id="email"><br><br>
