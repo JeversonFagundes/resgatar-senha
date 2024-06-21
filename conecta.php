@@ -10,7 +10,16 @@
 function conectar()
 {
 
-    $mysql = mysqli_connect("localhost", "root", "", "resgatar_senha");
+    require_once "config.php";
+
+    $mysql = mysqli_connect(
+
+        $config['host'],
+        $config['user'], 
+        $config['password'], 
+        $config['banco']
+    
+    );
 
     if ($mysql === false) {
 
