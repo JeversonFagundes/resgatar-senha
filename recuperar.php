@@ -55,10 +55,10 @@ try {
         'ssl' => array(
 
             'verify_peer' => false,
-           'verify_peer_name' => false,
-           'allow_self_signed' => true
+            'verify_peer_name' => false,
+            'allow_self_signed' => true
         )
-        
+
     );
 
     //Recepientes
@@ -68,11 +68,12 @@ try {
 
 
     //Conteudo
+    $mail->isHTML(true);
     $mail->Subject = 'Recuperar senha do sistema';
     $mail->Body = 'Olá <br>
     Você solicitou a recuperação da sua conta no nosso sistema.
     Para isso, clique no link abaixo para realizar a troca de senha: <br>
-    <a href="' . $_SERVER['SERVER_NAME'] . '/nova-senha.php?email=' . $usuario['email'] .
+    <a href="' . $_SERVER['SERVER_NAME'] . '/resgatar-senha/nova-senha.php?email=' . $usuario['email'] .
         '&token=' . $token . '">Clique aqui para recuperar o acesso da sua conta!</a><br>
     <br>
     Atenciosamente <br>
@@ -80,6 +81,18 @@ try {
 
     $mail->send();
     echo "Email enviado com sucesso<br> Confira o seu email!";
+
+    $data = new DateTime('now');
+    $agora = $data->format('Y-m-d H:i:s');
+
+    //gravar as informações na tabela recuperar.
+    $sql2 = "INSERT INTO recuperar 
+    (email, token, datarecuperacao, usado) 
+    
+    VALUES ('" . $usuario['email']."', '$token','$agora' , 0)";
+
+
+
 } catch (Exception $e) {
     echo "Não foi possivél enviar o email.
     Mailer Error: {$mail->ErrorInfo}";
